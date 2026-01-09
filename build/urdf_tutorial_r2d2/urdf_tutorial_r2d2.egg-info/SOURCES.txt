@@ -1,0 +1,16 @@
+package.xml
+setup.cfg
+setup.py
+launch/demo_launch.py
+resource/urdf_tutorial_r2d2
+urdf/r2d2.rviz
+urdf/r2d2.urdf.xml
+urdf_tutorial_r2d2/__init__.py
+urdf_tutorial_r2d2/state_publisher.py
+urdf_tutorial_r2d2.egg-info/PKG-INFO
+urdf_tutorial_r2d2.egg-info/SOURCES.txt
+urdf_tutorial_r2d2.egg-info/dependency_links.txt
+urdf_tutorial_r2d2.egg-info/entry_points.txt
+urdf_tutorial_r2d2.egg-info/requires.txt
+urdf_tutorial_r2d2.egg-info/top_level.txt
+urdf_tutorial_r2d2.egg-info/zip-safe
