@@ -24,7 +24,9 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            "pynode = meu_py.meu_node:main"
+            "pynode = meu_py.meu_node:main",
+            'robot_news_station = meu_py.robot_news_station:main',
+            'smartphone = meu_py.smartphone:main'
         ],
     },
 )
