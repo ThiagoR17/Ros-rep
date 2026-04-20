@@ -1,0 +1,14 @@
+# ROS2 Folders
+build/
+install/
+log/
+
+# VS Code Folders
+.vscode/
+*.vc.db
+*.vc.db-shm
+*.vc.db-wal
+
+# Python caches
+__pycache__/
+*.pyc
