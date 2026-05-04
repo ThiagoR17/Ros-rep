@@ -3,17 +3,27 @@
     <let name="rviz_config" value="$(find-pkg-share my_robot_description)/rviz/urdf_config.rviz" />
     <let name="gazebo_config_path" value="$(find-pkg-share my_robot_bringup)/config/gazebo_bridge.yaml" />
 
+   
     <node pkg="robot_state_publisher" exec="robot_state_publisher">
         <param name="robot_description" value="$(command 'xacro $(var urdf_path)')" />
+        <param name="use_sim_time" value="true" />
     </node>
 
+    <!-- Gazebo Sim -->
     <include file="$(find-pkg-share ros_gz_sim)/launch/gz_sim.launch.py">
-        <arg name="gz_args" value="-r empty.sdf" />
+        <arg name="gz_args" value="-r $(find-pkg-share my_robot_bringup)/worlds/test_world.sdf" />
     </include>
 
+    <!-- Spawn do Robô -->
     <node pkg="ros_gz_sim" exec="create" args="-topic robot_description -name my_robot" />
 
-    <node pkg="ros_gz_bridge" exec="parameter_bridge" args="--ros-args -p config_file:=$(var gazebo_config_path)" />
+    <!-- Bridge com use_sim_time -->
+    <node pkg="ros_gz_bridge" exec="parameter_bridge" args="--ros-args -p config_file:=$(var gazebo_config_path)">
+        <param name="use_sim_time" value="true" />
+    </node>
 
-    <node pkg="rviz2" exec="rviz2" output="screen" args="-d $(var rviz_config)" />
+    <!-- RViz2 com use_sim_time -->
+    <node pkg="rviz2" exec="rviz2" output="screen" args="-d $(var rviz_config)">
+        <param name="use_sim_time" value="true" />
+    </node>
 </launch>
