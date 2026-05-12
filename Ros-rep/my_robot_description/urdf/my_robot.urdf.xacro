@@ -5,5 +5,48 @@
     <xacro:include filename="mobile_base.xacro" />
     <xacro:include filename="mobile_base_gazebo.xacro" />
     <xacro:include filename="camera.xacro" />
+    <xacro:include filename="arm.xacro" />
+    <xacro:include filename="arm_gazebo.xacro" />
 
+
+    <joint name="base_to_arm" type="fixed">
+        <parent link="base_link" />
+        <child link="arm_base_link" />
+        <origin xyz="${arm_base_length/4.0} 0 ${arm_base_height/2}" rpy="0 0 0" />
+    </joint>
+
+    <gazebo reference="base_link">
+    <visual>
+      <material>
+        <ambient>0.0 0.0 1.0 1.0</ambient> <diffuse>0.0 0.0 1.0 1.0</diffuse>
+        <specular>0.1 0.1 0.1 1.0</specular>
+      </material>
+    </visual>
+  </gazebo>
+
+  <gazebo reference="right_wheel_link">
+    <visual>
+      <material>
+        <ambient>0.2 0.2 0.2 1.0</ambient> <diffuse>0.2 0.2 0.2 1.0</diffuse>
+      </material>
+    </visual>
+  </gazebo>
+
+  <gazebo reference="left_wheel_link">
+    <visual>
+      <material>
+        <ambient>0.2 0.2 0.2 1.0</ambient>
+        <diffuse>0.2 0.2 0.2 1.0</diffuse>
+      </material>
+    </visual>
+  </gazebo>
+
+  <gazebo reference="caster_wheel_link">
+    <visual>
+      <material>
+        <ambient>0.2 0.2 0.2 1.0</ambient>
+        <diffuse>0.2 0.2 0.2 1.0</diffuse>
+      </material>
+    </visual>
+  </gazebo>
 </robot>
